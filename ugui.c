@@ -955,7 +955,7 @@ void _UG_PutChar( char chr, UG_S16 x, UG_S16 y, UG_COLOR fc, UG_COLOR bc, const 
 			 c=actual_char_width;
 			 for( i=0;i<bn;i++ )
 			 {
-				b = font->p[index++];
+				b = FONT_DATA_ACCESS(font->p[index++]);
 				for( k=0;(k<8) && c;k++ )
 				{
 				   if( b & 0x01 )
@@ -979,7 +979,7 @@ void _UG_PutChar( char chr, UG_S16 x, UG_S16 y, UG_COLOR fc, UG_COLOR bc, const 
 		   {
 			  for( i=0;i<actual_char_width;i++ )
 			  {
-				 b = font->p[index++];
+				 b = FONT_DATA_ACCESS(font->p[index++]);
 				 color = ((((fc & 0xFF) * b + (bc & 0xFF) * (256 - b)) >> 8) & 0xFF) | //Blue component
 				         ((((fc & 0xFF00) * b + (bc & 0xFF00) * (256 - b)) >> 8)  & 0xFF00) | //Green component
 				         ((((fc & 0xFF0000) * b + (bc & 0xFF0000) * (256 - b)) >> 8) & 0xFF0000); //Red component
@@ -1001,7 +1001,7 @@ void _UG_PutChar( char chr, UG_S16 x, UG_S16 y, UG_COLOR fc, UG_COLOR bc, const 
            c=actual_char_width;
            for( i=0;i<bn;i++ )
            {
-             b = font->p[index++];
+             b = FONT_DATA_ACCESS(font->p[index++]);
              for( k=0;(k<8) && c;k++ )
              {
                if( b & 0x01 )
@@ -1028,7 +1028,7 @@ void _UG_PutChar( char chr, UG_S16 x, UG_S16 y, UG_COLOR fc, UG_COLOR bc, const 
             xo = x;
             for( i=0;i<actual_char_width;i++ )
             {
-               b = font->p[index++];
+               b = FONT_DATA_ACCESS(font->p[index++]);
                color = ((((fc & 0xFF) * b + (bc & 0xFF) * (256 - b)) >> 8) & 0xFF) |//Blue component
                        ((((fc & 0xFF00) * b + (bc & 0xFF00) * (256 - b)) >> 8)  & 0xFF00)|//Green component
                        ((((fc & 0xFF0000) * b + (bc & 0xFF0000) * (256 - b)) >> 8) & 0xFF0000); //Red component
